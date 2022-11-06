@@ -26,25 +26,27 @@ Password: influxadminuserpassword
 ```
 
 #### Vizualize logs
-After logging in, you should see the main view
-
-![InfluxDB home view][influxdb-home-view]
+After logging in, you should see the main view.
 
 Click on **Build a Dashboard**
 
-![InfluxDB dashboards view][influxdb-dashboards-view]
+![InfluxDB home view][influxdb-home-view]
 
 Then choose **Create Dashboard**
 
-Change dashboard name to **Logs**
+![InfluxDB dashboards view][influxdb-dashboards-view]
 
-![InfluxDB logs view][influxdb-dashboards-logs-view]
+
+Change dashboard name to **Logs**
 
 Click on **Add cell**
 
-![InfluxDB add cell][influxdb-add-cell-view]
+![InfluxDB logs view][influxdb-dashboards-logs-view]
 
 On this view: 
+
+![InfluxDB add cell][influxdb-add-cell-view]
+
 
 1. Change cell name - click on `Name this cell` and type `exampleService1`
 2. Click on `Script Editor` button and paste flux formula:
