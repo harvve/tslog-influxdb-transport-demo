@@ -28,21 +28,21 @@ Password: influxadminuserpassword
 #### Vizualize logs
 After logging in, you should see the main view
 
-![InfluxDB home view](influxdb-home-view)
+![InfluxDB home view][influxdb-home-view]
 
 Click on **Build a Dashboard**
 
-![InfluxDB dashboards view](influxdb-dashboards-view)
+![InfluxDB dashboards view][influxdb-dashboards-view]
 
 Then choose **Create Dashboard**
 
 Change dashboard name to **Logs**
 
-![InfluxDB logs view](influxdb-dashboards-logs-view)
+![InfluxDB logs view][influxdb-dashboards-logs-view]
 
 Click on **Add cell**
 
-![InfluxDB add cell](influxdb-add-cell-view)
+![InfluxDB add cell][influxdb-add-cell-view]
 
 On this view: 
 
@@ -76,11 +76,12 @@ from(bucket: "harvve_demo_bucket")
 
 Then on the log dashboard you should have 2 cells.
 
-![InfluxDB cell on dashboard](influxdb-cells-on-dashboard-view)
+![InfluxDB cell on dashboard][influxdb-cells-on-dashboard-view]
+
 
 To set autorefresh click on `Enable Auto Refresh` and select:
 
-![InfluxDB autorefresh dashboard cells](influxdb-autorefresh)
+![InfluxDB autorefresh dashboard cells][influxdb-autorefresh]
 
 Confirm dialog.
 
