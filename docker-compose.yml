@@ -1,0 +1,87 @@
+version: '3'
+
+services:
+ # influxdb 2.4 - integrated with kapacitor and chronograf
+  influxdb:
+    image: docker.io/bitnami/influxdb:2.4.0
+    container_name: harvve-demo-influxdb
+    restart: unless-stopped
+    volumes:
+      - harvve_demo_influxdb_data:/bitnami/influxdb
+    ports:
+      - 8086:8086
+      - 8088:8088
+    environment:
+      INFLUXDB_HTTP_AUTH_ENABLED: 'true'
+      INFLUXDB_ADMIN_USER: 'influxadminuser'
+      INFLUXDB_ADMIN_USER_PASSWORD: 'influxadminuserpassword'
+      INFLUXDB_ADMIN_USER_TOKEN: '39LPPDqlgxC85yG4oKmGoL4q6n3wI7Az6Fkb2QsxI6wsm-5jxDXxc09ZnjgJTYkvkGuFuDeyH1jkN4vRFQBp0g=='
+      INFLUXDB_DB: harvve_demo
+      INFLUXDB_USER_BUCKET: harvve_demo_bucket
+    networks:
+      - harvve-demo-network
+
+  telegraf:
+    image: telegraf:1.24.2
+    container_name: harvve-demo-telegraf
+    restart: unless-stopped
+    volumes:
+      - harvve_demo_telegraf_data:/etc/telegraf
+      - $PWD/configs/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    depends_on:
+      - influxdb
+    ports:
+      - 8125:8125
+      - 8092:8092
+      - 8094:8094
+      - 3123:3123/udp
+    networks:
+      - harvve-demo-network
+
+  # example log service
+  exampleService1:
+    image: harvve/tslog-influxdb-transport-demo:latest
+    container_name: harvve-demo-example-service-1
+    restart: unless-stopped
+    environment:
+      ADDRESS: 'telegraf'
+      PORT: 3123
+      MEASUREMENT_NAME: exampleService1Logs
+    volumes:
+      - harvve_demo_example_service_1_data:/usr/src/app
+    depends_on:
+      - influxdb
+      - telegraf
+    networks:
+      - harvve-demo-network
+
+  # example log service 2
+  exampleService2:
+    image: harvve/tslog-influxdb-transport-demo:latest
+    container_name: harvve-demo-example-service-2
+    restart: unless-stopped
+    environment:
+      ADDRESS: 'telegraf'
+      PORT: 3123
+      MEASUREMENT_NAME: exampleService2Logs
+    volumes:
+      - harvve_demo_example_service_2_data:/usr/src/app
+    depends_on:
+      - influxdb
+      - telegraf
+    networks:
+      - harvve-demo-network
+
+volumes:
+  harvve_demo_influxdb_data:
+    driver: local
+  harvve_demo_telegraf_data:
+    driver: local
+  harvve_demo_example_service_1_data:
+    driver: local
+  harvve_demo_example_service_2_data:
+    driver: local
+
+networks:
+  harvve-demo-network:
+    driver: bridge

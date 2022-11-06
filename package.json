@@ -1,0 +1,43 @@
+{
+  "name": "tslog-influxdb-transport-demo",
+  "version": "1.0.0",
+  "description": "Demonstrates sending logs to InfluxDB2 via telegraph",
+  "main": "dist/index.js",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "debug": "ts-node-dev -r dotenv/config ./src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harvve/tslog-influxdb-transport-demo.git"
+  },
+  "keywords": [
+    "influxdb2",
+    "tslog",
+    "telegraf",
+    "docker"
+  ],
+  "author": "Michal Siemienowicz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/harvve/tslog-influxdb-transport-demo/issues"
+  },
+  "homepage": "https://github.com/harvve/tslog-influxdb-transport-demo#readme",
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "@harvve/tslog-influxdb-transport": "^1.0.3",
+    "tslog": "^3.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "dotenv": "^16.0.3",
+    "rimraf": "^3.0.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.8.4"
+  },
+  "volta": {
+    "node": "18.10.0",
+    "npm": "8.19.2"
+  }
+}
