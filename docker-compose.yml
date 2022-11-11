@@ -17,7 +17,7 @@ services:
       INFLUXDB_ADMIN_USER_PASSWORD: 'influxadminuserpassword'
       INFLUXDB_ADMIN_USER_TOKEN: '39LPPDqlgxC85yG4oKmGoL4q6n3wI7Az6Fkb2QsxI6wsm-5jxDXxc09ZnjgJTYkvkGuFuDeyH1jkN4vRFQBp0g=='
       INFLUXDB_DB: harvve_demo
-      INFLUXDB_USER_BUCKET: harvve_demo_bucket
+      INFLUXDB_USER_BUCKET: logs
     networks:
       - harvve-demo-network
 
