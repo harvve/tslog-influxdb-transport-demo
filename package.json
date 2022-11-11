@@ -1,6 +1,6 @@
 {
   "name": "tslog-influxdb-transport-demo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Demonstrates sending logs to InfluxDB2 via telegraph",
   "main": "dist/index.js",
   "scripts": {
@@ -26,7 +26,7 @@
   "homepage": "https://github.com/harvve/tslog-influxdb-transport-demo#readme",
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
-    "@harvve/tslog-influxdb-transport": "^1.0.3",
+    "@harvve/tslog-influxdb-transport": "^2.0.0",
     "tslog": "^3.3.4"
   },
   "devDependencies": {
